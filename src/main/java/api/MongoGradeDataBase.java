@@ -269,7 +269,10 @@ public class MongoGradeDataBase implements GradeDataBase {
                     members[i] = membersArray.getString(i);
                 }
 
-                return new Team(team.getString(NAME), members);
+                return Team.builder()
+                        .name(team.getString(NAME))
+                        .members(members)
+                        .build();
             }
             else {
                 throw new RuntimeException(responseBody.getString(MESSAGE));
