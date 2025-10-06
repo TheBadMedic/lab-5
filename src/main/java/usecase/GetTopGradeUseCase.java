@@ -23,20 +23,19 @@ public final class GetTopGradeUseCase {
         // Call the API to get the usernames of all your team members
         float max = 0;
         final Team team = gradeDataBase.getMyTeam();
+        GetGradeUseCase getGrades = new GetGradeUseCase(gradeDataBase);
+
         // Call the API to get all the grades for the course for all your team members
         for (String username : team.getMembers()) {
             // Call the API to get the grade for the course for the username
-            final Grade[] grades = gradeDataBase.getGrades(username);
-            for (Grade grade : grades) {
-
-                if (grade.getCourse().equals(course)) {
+            Grade grade = getGrades.getGrade(username, course);
                     // Sum all the grades
-                    if (grade.getGrade() > max) {
+            if (grade.getGrade() > max) {
                         max = grade.getGrade();
-                    }
-                }
             }
         }
+
+
         return max;
     }
 }
