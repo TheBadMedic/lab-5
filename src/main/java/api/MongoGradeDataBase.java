@@ -269,7 +269,7 @@ public class MongoGradeDataBase implements GradeDataBase {
                     members[i] = membersArray.getString(i);
                 }
 
-                return new Team(team.getString(NAME), members(members));
+                return new Team(team.getString(NAME), members);
             }
             else {
                 throw new RuntimeException(responseBody.getString(MESSAGE));
@@ -278,11 +278,5 @@ public class MongoGradeDataBase implements GradeDataBase {
         catch (IOException | JSONException event) {
             throw new RuntimeException(event);
         }
-        // TODO Task 3b: Implement the logic to get the team information
-
-        // HINT 1: Look at the formTeam method to get an idea on how to parse the response
-        // HINT 2: You may find it useful to just initially print the contents of the JSON
-        //         then work on the details of how to parse it.
-        return null;
     }
 }
