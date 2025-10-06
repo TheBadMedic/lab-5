@@ -1,0 +1,6 @@
+{
+  "environment_variables": "token=CH5emp5fjlliKY3I3ImVgXZHtGcOV1wZ",
+  "message": "User signed up successfully. Please copy and paste the environment_variables into your intelij java running environment variables.",
+  "status_code": 200,
+  "token": "CH5emp5fjlliKY3I3ImVgXZHtGcOV1wZ"
+}
